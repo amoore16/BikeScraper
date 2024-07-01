@@ -1,13 +1,10 @@
-import * as React from "react";
+import React from "react";
 
-export interface IAppProps {}
+type Props = {
+  text: String;
+};
 
-export default class Button extends React.Component<IAppProps> {
-  public render() {
-    return (
-      <div>
-        <button className="button-md">Scrape it!</button>
-      </div>
-    );
-  }
-}
+export const Button = (props: Props) => {
+  const { text } = props;
+  return <button className="button-md">{text}</button>;
+};

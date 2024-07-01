@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import "./App.css";
-
-import Button from "./button";
+import { Button } from "./button";
 
 function App() {
   const [data, setData] = useState<any>([]);
@@ -25,7 +24,7 @@ function App() {
     <div className="container">
       <div className="box">
         {data ? data : "Loading..."}
-        <Button></Button>
+        <Button text="Scrape"></Button>
       </div>
     </div>
   );

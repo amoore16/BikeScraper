@@ -33,6 +33,7 @@ code {
   background-color: #6d5959;
   color: lightgray;
   border-radius: 1rem;
+  box-shadow: 10px 5px 5px #00000026;
 }
 
 .button {
@@ -45,11 +46,11 @@ code {
 .button-md {
   width: 220px;
   font-weight: bolder;
-  color: #202020;
+  color: #42554e;
   height: 60px;
   background-color: #9dcbba;
   border-radius: 10px;
-  border: 4px solid #749689;
+  border: 5px solid #749689;
 
   box-shadow: 10px 5px 5px #00000026;
 }
