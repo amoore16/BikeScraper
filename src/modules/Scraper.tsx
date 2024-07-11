@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../components/button";
 import ScraperService from "../services/ScraperService";
 import useFetch from "../hooks/useFetch";
+import BikeList from "./BikeList";
 
 type Props = {};
 
@@ -15,15 +16,13 @@ const Scraper = (props: Props) => {
   });
 
   const { data, isPending, error } = useFetch(fetchProps);
-  console.log(data, isPending, error);
-
   const clickHandler = (data: string) => {
     setFetchProps((fetchProps) => ({ ...fetchProps, url: baseUrl + data }));
     setBikeType(data);
   };
 
   return (
-    <>
+    <div className="container">
       <div className="container">
         <div className="box">
           <Button
@@ -45,14 +44,14 @@ const Scraper = (props: Props) => {
       "
       >
         <div className="box">
-          {isPending ? (
+          {isPending && data ? (
             <div> Loading...</div>
           ) : (
-            <div> {JSON.stringify(data)}</div>
+            <BikeList bikeList={data} />
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
