@@ -7,18 +7,20 @@ import BikeList from "./BikeList";
 type Props = {};
 
 const Scraper = (props: Props) => {
-  const baseUrl = "http://localhost:3000/scraper/bikesOnline/";
+  const baseUrl = "http://localhost:3000/scraper/roadBikes/";
+  const trekUrl = "http://localhost:3000/scraper/trek/";
   const [bikeType, setBikeType] = React.useState<string>();
 
   const [fetchProps, setFetchProps] = React.useState({
-    url: baseUrl + "road",
+    url: baseUrl,
     method: "GET",
   });
 
   const { data, isPending, error } = useFetch(fetchProps);
+  console.log(data);
   const clickHandler = (data: string) => {
-    setFetchProps((fetchProps) => ({ ...fetchProps, url: baseUrl + data }));
-    setBikeType(data);
+    setFetchProps((fetchProps) => ({ ...fetchProps, url: baseUrl }));
+    // setBikeType(data);
   };
 
   return (

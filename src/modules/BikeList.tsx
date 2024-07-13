@@ -7,18 +7,19 @@ type Props = {
 
 const BikeList = (props: Props) => {
   const { bikeList } = props;
+  console.log("bikeList: ", bikeList);
 
   const bikeCards = bikeList
     ?.map((bike) => {
-      const parsedPrice = parseFloat(bike.price.substring(1).replace(",", ""));
+      const parsedPrice = parseFloat(bike?.price.substring(1).replace(",", ""));
 
       return {
-        title: bike.title,
-        price: bike.price,
+        title: bike?.title,
+        price: bike?.price,
         formattedPrice: parsedPrice,
-        description: bike.description,
-        image: bike.image,
-        link: bike.link,
+        description: bike?.description,
+        image: bike?.image,
+        link: bike?.link,
       };
     })
     .sort((a, b) => a.formattedPrice - b.formattedPrice);
@@ -38,7 +39,7 @@ const BikeList = (props: Props) => {
               {bike.title} <br /> <b>Price</b> {bike.price}
               <br />
               <ul className="hide">
-                {bike.description.map((desc) => {
+                {bike?.description?.map((desc) => {
                   return <li>{desc}</li>;
                 })}
               </ul>
