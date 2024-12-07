@@ -7,11 +7,10 @@ type Props = {
 
 const BikeList = (props: Props) => {
   const { bikeList } = props;
-  console.log("bikeList: ", bikeList);
 
   const bikeCards = bikeList
     ?.map((bike) => {
-      const parsedPrice = parseFloat(bike?.price.substring(1).replace(",", ""));
+      const parsedPrice = parseFloat(bike?.price?.substring(1).replace(",", ""));
 
       return {
         title: bike?.title,

@@ -7,8 +7,8 @@ import BikeList from "./BikeList";
 type Props = {};
 
 const Scraper = (props: Props) => {
-  const baseUrl = "http://localhost:3000/scraper/roadBikes/";
-  const trekUrl = "http://localhost:3000/scraper/trek/";
+  const baseUrl = "http://localhost:3000/scraper/";
+  // const trekUrl = "http://localhost:3000/scraper/trek/";
   const [bikeType, setBikeType] = React.useState<string>();
 
   const [fetchProps, setFetchProps] = React.useState({
@@ -17,9 +17,8 @@ const Scraper = (props: Props) => {
   });
 
   const { data, isPending, error } = useFetch(fetchProps);
-  console.log(data);
-  const clickHandler = (data: string) => {
-    setFetchProps((fetchProps) => ({ ...fetchProps, url: baseUrl }));
+  const clickHandler = (bikeSearch: string) => {
+    setFetchProps((fetchProps) => ({ ...fetchProps, url: `${baseUrl}${bikeSearch}` }));
     // setBikeType(data);
   };
 
@@ -36,8 +35,12 @@ const Scraper = (props: Props) => {
             onClickHandler={() => clickHandler("gravel")}
           ></Button>
           <Button
-            text="Mountain"
+            text="Hardtail"
             onClickHandler={() => clickHandler("hardtail")}
+          ></Button>
+          <Button
+            text="Dual Suspension"
+            onClickHandler={() => clickHandler("dualsuspension")}
           ></Button>
         </div>
       </div>

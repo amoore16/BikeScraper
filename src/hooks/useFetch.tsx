@@ -6,12 +6,13 @@ type Props = {
 };
 
 const useFetch = (props: Props) => {
+
+  console.log(props)
+
   const { url, method } = props;
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string | null>(null);
-
-  console.log("url:", url);
 
   useEffect(() => {
     const fetchdata = async () => {
