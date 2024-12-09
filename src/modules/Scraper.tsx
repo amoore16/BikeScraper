@@ -8,7 +8,6 @@ type Props = {};
 
 const Scraper = (props: Props) => {
   const baseUrl = "http://localhost:3000/scraper/";
-  // const trekUrl = "http://localhost:3000/scraper/trek/";
   const [bikeType, setBikeType] = React.useState<string>();
 
   const [fetchProps, setFetchProps] = React.useState({
@@ -18,8 +17,10 @@ const Scraper = (props: Props) => {
 
   const { data, isPending, error } = useFetch(fetchProps);
   const clickHandler = (bikeSearch: string) => {
-    setFetchProps((fetchProps) => ({ ...fetchProps, url: `${baseUrl}${bikeSearch}` }));
-    // setBikeType(data);
+    setFetchProps((fetchProps) => ({
+      ...fetchProps,
+      url: `${baseUrl}${bikeSearch}`,
+    }));
   };
 
   return (

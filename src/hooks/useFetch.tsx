@@ -6,9 +6,6 @@ type Props = {
 };
 
 const useFetch = (props: Props) => {
-
-  console.log(props)
-
   const { url, method } = props;
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = React.useState<boolean>(false);
